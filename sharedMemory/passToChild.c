@@ -1,45 +1,55 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-
-int calc(int *arr, int n) {
-    int sum = 0;
-    for (int i = 1; i < n; i += 2) {
-        sum = sum + arr[i];
-    }
-    return sum;
-}
-
-int main(void) {
-    int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    pid_t pid = fork();
-    if (pid < 0) {
-        perror("fork failed");
-        return 1;
-    }
-    else if (pid == 0) {
-        printf("I am the child process\n");
-
-        int child_sum = calc(arr, n);
-        exit(child_sum);
-    }
-    else {
-        printf("I am the parent process\n");
-
-        int parent_sum = calc(arr, n);
-
-        int child_sum;
-        if (wait(&child_sum) == -1) {
-            perror("wait failed");
-        }
-        else {
-            printf("Sum by child: %d\n", child_sum);
-        }
-
-        printf("Sum by parent: %d\n", parent_sum);
-    }
-
-    return 0;
-}
+// C program for passing value from 
+// child process to parent process 
+#include <pthread.h> 
+#include <stdio.h> 
+#include <sys/types.h> 
+#include <unistd.h>  
+#include <stdlib.h>  
+#include <sys/wait.h> 
+#define MAX 10 
+  
+int main() 
+{ 
+  
+  int fd[2], i = 0; 
+  pipe(fd); 
+  pid_t pid = fork(); 
+  
+   if(pid > 0) { 
+      wait(NULL); 
+  
+      // closing the standard input  
+      close(0); 
+  
+      // no need to use the write end of pipe here so close it 
+      close(fd[1]);  
+  
+       // duplicating fd[0] with standard input 0 
+      dup(fd[0]);  
+      int arr[MAX]; 
+  
+      // n stores the total bytes read successfully 
+      int n = read(fd[0], arr, sizeof(arr)); 
+      for ( i = 0;i < n/4; i++) 
+  
+         // printing the array received from child process 
+          printf("%d ", arr[i]);  
+  }  
+  else if( pid == 0 ) { 
+      int arr[] = {1, 2, 3, 4, 5}; 
+  
+      // no need to use the read end of pipe here so close it 
+      close(fd[0]);  
+  
+       // closing the standard output 
+      close(1);     
+  
+      // duplicating fd[0] with standard output 1 
+      dup(fd[1]);   
+      write(1, arr, sizeof(arr)); 
+  }  
+  
+  else { 
+      perror("error\n"); //fork() 
+  } 
+}  
