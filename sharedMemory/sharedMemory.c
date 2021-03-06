@@ -22,7 +22,7 @@ int main()
         exit(-1);
     case 0: // PID == 0 代表是子程序
         printf("[Child] Child's PID is %d\n", getpid());
-
+        printf("shared memory segment %d attached at address %p\n", segment_id, shared_memory);
         break;
     default: // PID > 0 代表是父程序
         printf("[Parent] Parent's PID is %d\n", getpid());
@@ -44,6 +44,8 @@ int main()
     {
         fprintf(stderr, "Unable to detach\n");
     }
+    else
+        printf("detach was done.\n");
 
     /** now remove the shared memory segment */
     shmctl(segment_id, IPC_RMID, NULL);
