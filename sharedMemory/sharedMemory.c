@@ -7,21 +7,6 @@
 
 int main()
 {
-    pid_t PID = fork();// 從呼叫 fork 開始, 會分成兩支程序多工進行
-    switch(PID)
-    {
-        case -1: // PID == -1 代表 fork 出錯
-            perror("fork()");
-            exit(-1);
-        case 0: // PID == 0 代表是子程序
-            printf("[Child] Child's PID is %d\n",getpid());
-            
-            break;
-        default: // PID > 0 代表是父程序
-            printf("[Parent] Parent's PID is %d\n",getpid());
-            wait(NULL);
-    }
-
     /* the identifier for the shared memory segment */
     int segment_id;
     /* a pointer to the shared memory segment */
@@ -29,20 +14,30 @@ int main()
     /* the size (in bytes) of the shared memory segment */
     const int segment_size = 4096;
 
-    /** allocate  a shared memory segment */
-    segment_id = shmget(IPC_PRIVATE, segment_size, S_IRUSR | S_IWUSR); // assigning the "id" of segment to "segment_id"
+    pid_t PID = fork(); // 從呼叫 fork 開始, 會分成兩支程序多工進行
+    switch (PID)
+    {
+    case -1: // PID == -1 代表 fork 出錯
+        perror("fork()");
+        exit(-1);
+    case 0: // PID == 0 代表是子程序
+        printf("[Child] Child's PID is %d\n", getpid());
 
-    /** attach the shared memory segment */
-    shared_memory = (char *)shmat(segment_id, NULL, 0);
-    printf("shared memory segment %d attached at address %p\n", segment_id, shared_memory);
+        break;
+    default: // PID > 0 代表是父程序
+        printf("[Parent] Parent's PID is %d\n", getpid());
 
-    /** write a message to the shared memory segment   */
-    sprintf(shared_memory, "Hi there!");
-
-    /** now print out the string from shared memory */
-    printf("shared content : *%s*\n", shared_memory);
-
-    
+        /** allocate  a shared memory segment */
+        segment_id = shmget(IPC_PRIVATE, segment_size, S_IRUSR | S_IWUSR); // assigning the "id" of segment to "segment_id"
+        /** attach the shared memory segment */
+        shared_memory = (char *)shmat(segment_id, NULL, 0);
+        printf("shared memory segment %d attached at address %p\n", segment_id, shared_memory);
+        /** write a message to the shared memory segment   */
+        sprintf(shared_memory, "Hi there!");
+        /** now print out the string from shared memory */
+        printf("shared content : *%s*\n", shared_memory);
+        wait(NULL);
+    }
 
     /** now detach the shared memory segment */
     if (shmdt(shared_memory) == -1)
