@@ -22,6 +22,7 @@ int main()
         exit(-1);
     case 0: // PID == 0 代表是子程序
         printf("[Child] Child's PID is %d\n", getpid());
+        sleep(5);
         printf("shared memory segment %d attached at address %p\n", segment_id, shared_memory);
         printf("shared content : *%s*\n", shared_memory);
         break;
@@ -37,6 +38,7 @@ int main()
         sprintf(shared_memory, "Hi there!");
         /** now print out the string from shared memory */
         printf("shared content : *%s*\n", shared_memory);
+
         wait(NULL);
     }
 
