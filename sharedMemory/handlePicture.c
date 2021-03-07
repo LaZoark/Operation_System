@@ -12,7 +12,7 @@ int main()
     // 取得適當大小的陣列
     bimage = (unsigned char *)malloc(sizeof(unsigned char) * readbmp("Lenna", bmpinfo, 0, bimage));
     // 讀取影像
-    readbmp("la", bmpinfo, 1, bimage);
+    readbmp("Lenna", bmpinfo, 1, bimage);
 
     writebmp("new_la", bmpinfo, bimage);
 

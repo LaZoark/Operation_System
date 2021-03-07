@@ -1,0 +1,7 @@
+.vscode/launch.json
+.vscode/tasks.json
+sharedMemory/handleBMP
+sharedMemory/handlePicture
+sharedMemory/test_bmp
+sharedMemory/handlePicture
+sharedMemory/test_bmp.c
