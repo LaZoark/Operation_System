@@ -9,14 +9,14 @@
 讀完header後，取出width與height，由於一個pixel有rgb三個pixel，算影像大小的公式為width*height*3，
 再與(filesize-bitmap_dataoffset)比較看看是否相等，判斷大小是否有算錯
 */
-int readbmp(char *filename, lbheader &hbmp, int mode, unsigned char *buffer,int ddddd)
+int readbmp(char *filename, lbheader hbmp, int mode, unsigned char *buffer)
 {
     FILE *ifp;
     char c[128];
     unsigned char *ptr;
 
-    sprintf(c, "./result/%s.bmp", filename);
-    ifp = fopen(c, "rb");
+    sprintf(c, "/home/lazoark/Documents/OS_study/sharedMemory/%s.bmp", filename);
+    ifp = fopen(filename, "rb");
     if (ifp == NULL)
     {
         printf("readbmp: file open error\n");
@@ -27,6 +27,7 @@ int readbmp(char *filename, lbheader &hbmp, int mode, unsigned char *buffer,int 
     if (mode == 1)
     {
         fread(buffer, sizeof(unsigned char), (hbmp.width * hbmp.height * 3), ifp);
+        printf("Bmp was read!\n");
     }
     else
     {
@@ -34,9 +35,9 @@ int readbmp(char *filename, lbheader &hbmp, int mode, unsigned char *buffer,int 
         return (hbmp.width * hbmp.height * 3);
     }
     fclose(ifp);
+    printf("Bmp was closed.\n");
     return 1;
 }
-
 
 int writebmp(char *filename, lbheader hbmp, unsigned char *buffer)
 {
@@ -44,7 +45,7 @@ int writebmp(char *filename, lbheader hbmp, unsigned char *buffer)
     char c[128];
     unsigned char *ptr;
 
-    sprintf(c, "./result/%s.bmp", filename);
+    sprintf(c, "/home/lazoark/Documents/OS_study/sharedMemory/%s.bmp", filename);
     ofp = fopen(c, "wb");
     if (ofp == NULL)
     {
@@ -54,30 +55,10 @@ int writebmp(char *filename, lbheader hbmp, unsigned char *buffer)
 
     ptr = (unsigned char *)&hbmp;
     fwrite(ptr, sizeof(unsigned char), sizeof(lbheader), ofp);
+    printf("bmpheader was placed.\n");
     fwrite(buffer, sizeof(unsigned char), (hbmp.width * hbmp.height * 3), ofp);
-
+    printf("image array was placed.\n");
     fclose(ofp);
+    printf("NICE!!!!!!!!");
     return 1;
-}
-
-int main()
-{
-    lbheader hbmp;
-    unsigned char *ptr;
-    ptr = (unsigned char *)&hbmp;
-    fread(ptr, sizeof(unsigned char), sizeof(lbheader), fp);
-
-    // 先宣告指標與結構
-    unsigned char *bimage;
-    lbheader bmpinfo;
-    // 取得適當大小的陣列
-    bimage = (unsigned char *)malloc(sizeof(unsigned char) * readbmp("/home/lazoark/Documents/OS_study/sharedMemory/Lenna.bmp",
-                                                                     bmpinfo, 0, bimage));
-    // 讀取影像
-    readbmp("/home/lazoark/Documents/OS_study/sharedMemory/Lenna.bmp",
-            bmpinfo, 1, bimage);
-/*
-讀取影像時要先知道影像大小，以便宣告足夠的記憶體空間，
-所以要呼叫兩次readbmp()，一次先取到header，第二次才真的取影像資料
-*/
 }
