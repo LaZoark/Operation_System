@@ -4,7 +4,7 @@
 
 # 第二個作業
 
-source: "sharedMemory.c"
+source: "[sharedMemory.c](https://github.com/LaZoark/Operation_System/blob/main/sharedMemory/sharedMemory.c)"
 
 ![Image](https://github.com/LaZoark/Operation_System/blob/main/sharedMemory/pipe_pass_value.png)
 
