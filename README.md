@@ -18,3 +18,4 @@ for class
 - [指標與陣列](https://openhome.cc/Gossip/CGossip/PointerAndArray.html "指標與陣列")
 - [pointer, pointers of array, pointer to array](http://hackgrass.blogspot.com/2018/03/c-pointerint-foo-int-bar.html "pointer, pointers of array, pointer to array")
 - [Shared Memory Fork Example](https://gist.github.com/wtneal/d00b72609fd74dff40e6 "Shared Memory Fork Example")
+- [fseek() & ftell()用法](https://www.cnblogs.com/AI-Algorithms/p/3391346.html "fseek() & ftell()用法")
