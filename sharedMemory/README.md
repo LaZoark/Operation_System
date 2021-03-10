@@ -6,6 +6,6 @@
 
 source: "[sharedMemory.c](https://github.com/LaZoark/Operation_System/blob/main/sharedMemory/sharedMemory.c)"
 
-[Image](https://github.com/LaZoark/Operation_System/blob/main/sharedMemory/pipe_pass_value.png)
+![Image](https://github.com/LaZoark/Operation_System/blob/main/sharedMemory/pipe_pass_value.png)
 
 *成功傳送字串”Hi there!”*
