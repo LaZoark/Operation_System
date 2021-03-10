@@ -9,3 +9,6 @@ sharedMemory/passImageToChild
 sharedMemory/pipePractice
 .gitignore
 sharedMemory/sharedMemory
+sharedMemory/tryAndTemp/handleBMP
+sharedMemory/tryAndTemp/handlePicture
+sharedMemory/tryAndTemp/test_bmp

@@ -5,7 +5,7 @@ int main()
 {
     int fd[2]; // 兩個檔案描述符
     pid_t pid;
-    char buff[20];
+    char *buff[20];//={};
 
     if (pipe(fd) < 0) // 建立管道
         printf("Create Pipe Error!\n");
@@ -14,15 +14,16 @@ int main()
         printf("Fork Error!\n");
     else if (pid > 0) // 父程序
     {
+        printf("father here\n");
         close(fd[0]); // 關閉讀端
         write(fd[1], "hello world\n", 12);
     }
     else
     {
+        printf("child here\n");
         close(fd[1]); // 關閉寫端
-        read(fd[0], buff, 20);
+        read(fd[0], buff, sizeof(buff));
         printf("%s", buff);
     }
-
     return 0;
 }
