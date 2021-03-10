@@ -5,3 +5,7 @@ sharedMemory/handlePicture
 sharedMemory/test_bmp
 sharedMemory/handlePicture
 sharedMemory/test_bmp.c
+sharedMemory/passImageToChild
+sharedMemory/pipePractice
+.gitignore
+sharedMemory/sharedMemory
