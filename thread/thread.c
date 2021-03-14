@@ -5,6 +5,7 @@
 #define DEST "new_Lenna.bmp"
 
 static int data_size=0;
+// int count = 0;
 
 void *child(void* data_)
 {
@@ -16,7 +17,6 @@ void *child(void* data_)
     pthread_exit(NULL); // no need to return
 }
 
-// 主程式
 int main()
 {
     FILE *file = fopen(SOURCE, "rb");
@@ -28,7 +28,7 @@ int main()
     char *data = calloc(data_size,sizeof(char)); // memory allocation
 
     pthread_t t;
-    
+
     // 建立子執行緒
     pthread_create(&t, NULL, child, (void* )data);
 
@@ -38,15 +38,18 @@ int main()
     else
         perror("fopen(SOURCE)");
     char buffer;
+    printf("sizeof(buffer)");
     for (int j = 0; j < data_size; j++)
     {
         fread(&buffer, sizeof(char), 1, fp);
         *(data + j) = buffer;
+        // printf("data+j= %p\n",*(data+j));
     }
     fclose(fp);
     
-
-    free(data);             // 釋放記憶體
+    sleep(1); // wait for the data(child) ready 
+               
     pthread_join(t, NULL); // 等待子執行緒執行完成
+    free(data);  // 釋放記憶體
     return 0;
 }
