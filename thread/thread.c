@@ -5,6 +5,7 @@
 #define DEST "new_Lenna.bmp"
 
 static int data_size = 0;
+// set a counter to make sure the file read%write separately
 int count = 0;
 
 void *child(void *data_)
@@ -14,13 +15,9 @@ void *child(void *data_)
     int i=0;
     while(i<data_size)
     {
-        if(i<count)
+        if(i<=count)
             fwrite(&d[i++], sizeof(char), 1, newfp);
     }
-    // for (int i = 0; i < data_size; i++)
-    //     if (i < count)
-    //         fwrite(&d[i], sizeof(char), 1, newfp);
-    //     else i--;
     fclose(newfp) ? perror("fclose()") : printf("Child was done.\n");
     pthread_exit(NULL); // no need to return
 }
@@ -46,7 +43,6 @@ int main()
     else
         perror("fopen(SOURCE)");
     char buffer;
-    // printf("sizeof(buffer)=%ld\n",sizeof(buffer));
     for (int j = 0; j < data_size; j++)
     {
         fread(&buffer, sizeof(char), 1, fp);
@@ -54,9 +50,8 @@ int main()
         count = j;
     }
     fclose(fp);
-    // printf("sizeof(buffer)=%ld\n",sizeof(buffer));
-
-    sleep(1); // wait for the data(child) ready
+    
+    // sleep(1); // wait for the data(child) ready
 
     pthread_join(t, NULL); // 等待子執行緒執行完成
     free(data);            // 釋放記憶體
