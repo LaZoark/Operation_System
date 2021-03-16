@@ -1,6 +1,7 @@
 # Operation System (Ubuntu :electric_plug: )
 
-for class
+All the projects are uploaded in order to handout my homeworks easily.  
+(There may also contains my practicing snippets or result)
 
 ### Useful function
 - [FILE &#42;fopen(const char &#42;filename, const char *mode)](http://tw.gitbook.net/c_standard_library/c_function_fopen.html "FILE *fopen(const char *filename, const char *mode)")
