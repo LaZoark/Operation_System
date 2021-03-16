@@ -11,6 +11,10 @@
 
 
 ### Bonus [Shared Memory V.S. Threading]
+
+*To measure the exacution time under ubuntu, you may simply add `time` in front of the run command.  
+Here's an example:  $ `time ./a.out`  
+
 - ↓Shared memory : It spends only `0.023` second(s).  
 ![sharedMemory_timespan](https://user-images.githubusercontent.com/25290627/111311611-622a7500-8699-11eb-8ab5-ba1598b02afd.png)  
 - ↓Threading     : It spends about `0.070` second(s).  
