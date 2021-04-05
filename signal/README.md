@@ -9,3 +9,9 @@
 2. Second snippet involves division error.  
 Any integer devided by zero will lead to "`Floating point exception (core dumped)`" which is *`SIGFPE`*.  
 ![withoutHandler](https://user-images.githubusercontent.com/25290627/113584224-375e8b80-965d-11eb-94c7-15d508accce2.png)
+
+## Besides SIGINT & SIGFPE, there are various kind of signal handler.
+Let's take `SIGPIPE` for example.  
+
+
+reference: [Demonstration to generate SIGPIPE Error with Socket](http://enggedu.com/demonstration_to_generate_SIGPIPE_error_with_socket/index.php)
