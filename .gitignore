@@ -12,3 +12,7 @@ sharedMemory/sharedMemory
 sharedMemory/tryAndTemp/handleBMP
 sharedMemory/tryAndTemp/handlePicture
 sharedMemory/tryAndTemp/test_bmp
+thread/a.out
+.vscode/c_cpp_properties.json
+.vscode/settings.json
+signal/signalPractice
