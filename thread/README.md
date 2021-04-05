@@ -8,3 +8,15 @@
 [teacher's code(lab3.c)](https://github.com/LaZoark/Operation_System/blob/main/thread/lab3.c)  
 ### hw2
 [thread.c](https://github.com/LaZoark/Operation_System/blob/main/thread/thread.c) 
+
+
+### Bonus [Shared Memory V.S. Threading]
+
+*To measure the exacution time under ubuntu, you may simply add `time` in front of the run command.  
+Here's an example:  $ `time ./a.out`  
+
+- ↓Shared memory : It spends only `0.023` second(s).  
+![sharedMemory_timespan](https://user-images.githubusercontent.com/25290627/111311611-622a7500-8699-11eb-8ab5-ba1598b02afd.png)  
+- ↓Threading     : It spends about `0.070` second(s).  
+![thread_timespan](https://user-images.githubusercontent.com/25290627/111311615-63f43880-8699-11eb-8fcc-31641c32263f.png)  
+*In this case, apparently, threading is definitely not a good choice.*
