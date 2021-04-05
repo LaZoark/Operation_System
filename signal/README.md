@@ -19,4 +19,7 @@ Let's take `SIGPIPE` for example.
 ***Work properly  
 ![SIGPIPE_workProperly](https://user-images.githubusercontent.com/25290627/113590635-7a246180-9665-11eb-9921-29843a682a4e.png)  
 
-reference: [Demonstration to generate SIGPIPE Error with Socket](http://enggedu.com/demonstration_to_generate_SIGPIPE_error_with_socket/index.php)
+
+reference:  
+[Demonstration to generate SIGPIPE Error with Socket](http://enggedu.com/demonstration_to_generate_SIGPIPE_error_with_socket/index.php)  
+[Using signals and sigpipe](https://stackoverflow.com/questions/7774569/using-signals-and-sigpipe)
