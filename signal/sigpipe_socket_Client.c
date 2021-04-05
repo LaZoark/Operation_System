@@ -23,7 +23,7 @@ void sig_pipe(int signum)
 /*--- and sending data while the server just terminates the         ---*/
 /*--- connection.                                                   ---*/
 /*---------------------------------------------------------------------*/
-main()
+int main()
 {	struct sockaddr_in addr;
 	int sd, byte_count, addr_size;
 
