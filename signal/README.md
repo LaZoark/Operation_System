@@ -1,6 +1,6 @@
 # Signal Practice (System interrupt)
 *The following result is runnung under ubuntu.*
-## Run teacher's snippet
+## Running teacher's snippet.
 ![demo1](https://user-images.githubusercontent.com/25290627/113581862-47c13700-965a-11eb-9349-869a7ef059cf.png)
 ![demo2](https://user-images.githubusercontent.com/25290627/113581865-498afa80-965a-11eb-8a88-4f7438036605.png)
 
