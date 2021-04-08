@@ -3,7 +3,6 @@
 sharedMemory/handleBMP
 sharedMemory/handlePicture
 sharedMemory/test_bmp
-sharedMemory/handlePicture
 sharedMemory/test_bmp.c
 sharedMemory/passImageToChild
 sharedMemory/pipePractice
@@ -16,3 +15,5 @@ thread/a.out
 .vscode/c_cpp_properties.json
 .vscode/settings.json
 signal/signalPractice
+signal/sigpipe_socket_Client
+signal/sigpipe_socket_Server

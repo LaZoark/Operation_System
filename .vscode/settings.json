@@ -1,3 +1,5 @@
 {
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "code-runner.customCommand": "gcc thread.c -lpthread && ./a.out",
+    "code-runner.runInTerminal": true
 }
