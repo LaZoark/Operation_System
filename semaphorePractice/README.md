@@ -14,3 +14,8 @@ main code here : [semaphoreSimulation.java](https://github.com/LaZoark/Operation
 [維基百科](https://zh.wikipedia.org/zh-tw/%E4%BF%A1%E5%8F%B7%E9%87%8F)  
 
 ![resultExplaination](https://user-images.githubusercontent.com/25290627/114026933-6e28e180-98a9-11eb-8241-f62aa0d5602d.png)
+![codeExplaination](https://user-images.githubusercontent.com/25290627/114275028-8dfc0900-9a53-11eb-8786-e2cef7eedf71.png)
+![CPP](https://user-images.githubusercontent.com/25290627/114275032-8f2d3600-9a53-11eb-88e7-60182ed8e2ee.png)  
+
+#### CodeBlocks made me go back to work!  
+![goToWorkNow](https://user-images.githubusercontent.com/25290627/114275035-8fc5cc80-9a53-11eb-8dc5-be3ff83c313d.png)
