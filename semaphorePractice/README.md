@@ -1,5 +1,6 @@
 # Semaphore Practice
 main code here : [semaphoreSimulation.java](https://github.com/LaZoark/Operation_System/blob/main/semaphorePractice/src/semaphoreSimulation.java)  
+code in C++ here : [semaphore.cpp](https://github.com/LaZoark/Operation_System/blob/main/semaphorePractice/semaphore.cpp)  
 
 號誌又稱為旗號，是一個同步物件，用於保持在0至指定最大值之間的一個計數值。當執行緒完成一次對該semaphore物件的等待時，  
 該計數值減一；當執行緒完成一次對semaphore物件的釋放時，計數值加一。當計數值為0，則執行緒等待該semaphore物件不再能成功直至該semaphore物件變成signaled狀態。  
@@ -20,3 +21,4 @@ main code here : [semaphoreSimulation.java](https://github.com/LaZoark/Operation
 
 #### CodeBlocks made me go back to work!  
 ![goToWorkNow](https://user-images.githubusercontent.com/25290627/114275035-8fc5cc80-9a53-11eb-8dc5-be3ff83c313d.png)
+ 
